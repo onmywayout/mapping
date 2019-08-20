@@ -1,0 +1,219 @@
+body {
+    background-image: url(../main_img/header.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 768px;
+}
+h3, p
+{
+    font-family: 'Roboto';
+}
+
+h1, h2
+{
+    font-family: 'Coda';
+}
+
+/* separa los titulos de sección */
+.level2 
+{
+    margin-top: 45px;
+}
+
+/* evita que el primer titulo se mueva */
+/* #context h2 
+{
+    margin-top: 0;
+    display: contents;
+} */
+
+/* pone los titulos sobre las imagenes */
+h2 
+{
+    position: absolute;
+    /* color: #4D4D4D; */
+    color: white;
+    margin-left: 30px;
+    margin-top: 70px;
+}
+
+/*inicio del contenido */
+#header
+{
+    margin-top: 549px;
+    color: white;
+}
+
+/* ---------------modifica el menu que R genera-------------  */
+.container-fluid #TOC
+{
+
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: bold;    
+    width: 213px;
+    min-height: 100vh;
+    margin: 0;
+    left: 0;
+    border-color: black;
+    border-width: 0px;
+    border-radius: 0;
+}
+
+/* Cada sub item del menu */
+#TOC li.tocify-item.list-group-item 
+{
+  
+    height: 35px;
+    margin-top: 15px;
+    padding-left: 0;
+    margin-left: -11px;
+    cursor: pointer;
+    background-color: transparent !important;
+}
+#TOC .tocify-header 
+{
+    /* text-indent: 10px; */
+    border-bottom-color: black !important;
+    border-bottom-width: 1px !important;
+    border-bottom-style: solid !important;
+    /* background-color: #E3E3E3 !IMPORTANT; */
+    /* padding: 20px; */
+}
+/* el primer item del menu no tiene margin top para que no se corra toda la lista */
+#tocify-header0 > li
+{
+    margin-top: 0 !important;
+}
+/* le quita el bold a los submenus */
+.tocify-subheader 
+{
+    font-weight: normal;
+}
+
+.headerMenu
+{
+    height: 111px;
+    color: white;
+    font-family: Roboto;
+    padding-top: 56px;
+    font-size: 14px;
+    padding-left: 19px;   
+     min-height: 111px;
+     
+    background-color: black;
+}
+
+.headerMenu p
+{
+    font-weight: normal;
+    font-size: 12px;
+}
+.subcontenedorMenu
+{
+    padding: 10px 21px;
+    background-color: #e3e3e3cc;
+    height: calc(100vh - 121px - 82px);   
+    min-height: 563px;
+}
+
+.footerMenu
+{
+    height: 82px;
+    min-height: 82px;
+    background-color: black;
+}
+
+.logoFidelio
+{
+    margin-left: 20px;
+    margin-top: 25px;
+}
+
+#TOC .tocify-subheader 
+{
+    text-indent: 10px;
+}
+
+/* añade una flecha cuando el item esta seleccionado (scroll) */
+.tocify-item.active:after {
+    content: url("flechaMenu.png");
+    position: absolute;
+    left: 166px;
+    top: 7px;
+    margin-left: -2px;
+}
+
+/* desactiva el color blanco del item que esta en foco en el menu */
+.list-group-item.active
+{
+    color: black !important;
+}
+
+
+
+/* esto modifica el modelado de tópicos para que quede una pantalla encima de la otra  */
+
+/* mueve una grafica abajo de la otra */
+/* [id^=ldavis].xaxis
+{
+    transform: translate(100px, 850px);
+} */
+/* mueve el titutlo de una grafica (la de la derecha) debahjo de la otra */
+/* [id$="lambdaInput"]
+{
+    transform: translate(-644px, 780px);
+} */
+
+
+/* [id^=ldavis_el] > svg
+{
+    height: 1600px;
+} */
+
+/* selecciona todo el contenedor d ela grafica */
+/* body > [id^=ldavis_el]
+{
+    margin-left: 50px;
+} */
+/* 
+
+/* cambia el tamaño de las gráficas de tópicos y las corre a la izquierda para que quepan juntas */
+#topic-modelling > [id^=ldavis_el]
+{
+    transform: scale(0.75) translateX(-133px);
+}
+
+/* esto hace parte del plugin ldavid para visualización de tópicos, estas lineas son sacadas del css original de ese plugin
+y lo que hace es asegurarse de que este css solo afecte el path (adicionandole el llamado por id # al selector) y el texto de ese plugin. 
+Adicionalmente hay un js que borra el css original para que no cause conflictos */ 
+/* Taken from https://github.com/cpsievert/LDAvis */
+
+#topic-modelling path {
+    fill: none;
+    stroke: none;
+  }
+  
+  .xaxis .tick.major {
+      fill: black;
+      stroke: black;
+      stroke-width: 0.1;
+      opacity: 0.7;
+  }
+  
+  .slideraxis {
+      fill: black;
+      stroke: black;
+      stroke-width: 0.4;
+      opacity: 1;
+  }
+  
+  #topic-modelling text {
+      font-family: sans-serif;
+      font-size: 11px;
+  }
+  
+  /* IPython Notebook CSS to allow visualization to fit */
+  /* I'm open to a better way of accomplishing this goal... */
+  .container { width:1350px !important; }
+  /* This is for nbviewer's benefit since the above wasn't enough... */
+  .output_area { width:1450px !important; }
